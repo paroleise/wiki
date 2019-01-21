@@ -1,28 +1,29 @@
 class MachinesController < ApplicationController
-  before_action :set_machine, only: [:show, :edit, :update, :destroy]
+  before_action :set_machine, only: [:show, :edit, :update, :destroy, :modify]
 
-  # GET /machines
-  # GET /machines.json
+
   def index
     @machines = Machine.all
   end
 
-  # GET /machines/1
-  # GET /machines/1.json
+
   def show
   end
 
-  # GET /machines/new
+
   def new
     @machine = Machine.new
   end
 
-  # GET /machines/1/edit
+
   def edit
   end
 
-  # POST /machines
-  # POST /machines.json
+  def modify
+    @object = params[:object]
+  end
+
+
   def create
     @machine = Machine.new(machine_params)
 
@@ -37,8 +38,7 @@ class MachinesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /machines/1
-  # PATCH/PUT /machines/1.json
+
   def update
     respond_to do |format|
       if @machine.update(machine_params)
@@ -51,8 +51,7 @@ class MachinesController < ApplicationController
     end
   end
 
-  # DELETE /machines/1
-  # DELETE /machines/1.json
+
   def destroy
     @machine.destroy
     respond_to do |format|
@@ -62,12 +61,10 @@ class MachinesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_machine
       @machine = Machine.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def machine_params
       params.require(:machine).permit(:name, :kana, :judgment, :manufacturer, :spec, :archetype, :introduction_date, :introduction_season, :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other, :conclusion, :annotation)
     end

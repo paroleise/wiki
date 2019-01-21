@@ -8,6 +8,7 @@
 </p>
 
 <table class="show-table">
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "table"), method: :post %>
   <tbody>
     <tr>
       <td>
@@ -55,50 +56,57 @@
 
 <div>
   <h3><%= t("activerecord.attributes.machine.overview") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "overview"), method: :post %>
   <p>
-    <%= @machine.overview %>
+    <%== @machine.overview %>
   </p>
 </div>
 
 <div>
   <h3><%= t("activerecord.attributes.machine.feature") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "feature"), method: :post %>
   <p>
-    <%= @machine.feature %>
+    <%== @machine.feature %>
   </p>
 </div>
 
 <div>
   <h3><%= t("activerecord.attributes.machine.evaluation_point") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "evaluation_point"), method: :post %>
   <p>
-    <%= @machine.evaluation_point %>
+    <%== @machine.evaluation_point %>
   </p>
 </div>
 
 <div>
   <h3><%= t("activerecord.attributes.machine.pros_and_cons") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "pros_and_cons"), method: :post %>
   <p>
-    <%= @machine.pros_and_cons %>
+    <%== @machine.pros_and_cons %>
   </p>
 </div>
 
 <div>
   <h3><%= t("activerecord.attributes.machine.problem") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "problem"), method: :post %>
   <p>
-    <%= @machine.problem %>
+    <%== @machine.problem %>
   </p>
 </div>
 
 <div>
   <h3><%= t("activerecord.attributes.machine.other") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "other"), method: :post %>
   <p>
-    <%= @machine.other %>
+    <%== @machine.other %>
   </p>
 </div>
 
 <div>
   <h3><%= t("activerecord.attributes.machine.conclusion") %></h3>
+  <%= link_to "[編集]", modify_path(id: @machine.id, object: "conclusion"), method: :post %>
   <p>
-    <%= @machine.conclusion %>
+    <%== @machine.conclusion %>
   </p>
 </div>
 
@@ -108,5 +116,5 @@
   <%= @machine.annotation %>
 </p>
 
-<%= link_to 'Edit', edit_machine_path(@machine) %> |
+
 <%= link_to 'Back', machines_path %>

@@ -1,0 +1,115 @@
+<%= form_with(model: machine, local: true) do |form| %>
+  <% if machine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(machine.errors.count, "error") %> prohibited this machine from being saved:</h2>
+
+      <ul>
+      <% machine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if object == "table" %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :kana %>
+      <%= form.text_field :kana %>
+    </div>
+
+    <div class="field">
+      <%= form.label :judgment %>
+      <%= form.text_field :judgment %>
+    </div>
+
+    <div class="field">
+      <%= form.label :manufacturer %>
+      <%= form.text_field :manufacturer %>
+    </div>
+
+    <div class="field">
+      <%= form.label :spec %>
+      <%= form.text_field :spec %>
+    </div>
+
+    <div class="field">
+      <%= form.label :archetype %>
+      <%= form.text_field :archetype %>
+    </div>
+
+    <div class="field">
+      <%= form.label :introduction_date %>
+      <%= form.date_select :introduction_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :introduction_season %>
+      <%= form.text_field :introduction_season %>
+    </div>
+  <% end %>
+
+  <% if object == "overview" %>
+    <div class="field">
+      <%= form.label :overview %>
+      <%= form.text_field :overview, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "feature" %>
+    <div class="field">
+      <%= form.label :feature %>
+      <%= form.text_field :feature, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "evaluation_point" %>
+    <div class="field">
+      <%= form.label :evaluation_point %>
+      <%= form.text_field :evaluation_point, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "pros_and_cons" %>
+    <div class="field">
+      <%= form.label :pros_and_cons %>
+      <%= form.text_field :pros_and_cons, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "problem" %>
+    <div class="field">
+      <%= form.label :problem %>
+      <%= form.text_field :problem, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "other" %>
+    <div class="field">
+      <%= form.label :other %>
+      <%= form.text_field :other, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "conclusion" %>
+    <div class="field">
+      <%= form.label :conclusion %>
+      <%= form.text_field :conclusion, class: "quill_container" %>
+    </div>
+  <% end %>
+
+  <% if object == "annotation" %> <%#TODO: 注釈レコードを関連づけて表示 %>
+    <div class="field">
+      <%= form.label :annotation %>
+      <%= form.text_field :annotation %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

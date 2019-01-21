@@ -10,7 +10,29 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
+//= require popper
+//= require bootstrap-sprockets
 //= require activestorage
-//= require turbolinks
+//= require quill.global
 //= require_tree .
+//= require popper
+
+
+var defaults = {
+  theme: 'snow',
+  modules: {
+    toolbar: [
+      [{ 'header': [1, 2, false] }],
+      [{ 'color': [] }, { 'background': [] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      ['blockquote', 'code-block'],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      ['clean'],
+      ['link']
+    ]
+  },
+  placeholder: '記事を入力してください',
+};
+Quilljs.setDefaults(defaults)
