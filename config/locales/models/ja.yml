@@ -9,7 +9,7 @@ ja:
         judgment: 判定
         manufacturer: メーカー
         spec: スペック
-        type: タイプ
+        archetype: タイプ
         introduction_date: 導入日
         introduction_season: 導入期間
         overview: 概要

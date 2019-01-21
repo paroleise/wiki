@@ -69,6 +69,6 @@ class MachinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def machine_params
-      params.require(:machine).permit(:name, :kana, :judgment, :manufacturer, :spec, :type, :introduction_date, :introduction_season, :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other, :conclusion, :annotation)
+      params.require(:machine).permit(:name, :kana, :judgment, :manufacturer, :spec, :archetype, :introduction_date, :introduction_season, :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other, :conclusion, :annotation)
     end
 end
