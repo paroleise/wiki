@@ -6,21 +6,6 @@
   <thead>
     <tr>
       <th><%= t("activerecord.attributes.machine.name") %></th>
-      <th><%= t("activerecord.attributes.machine.kana") %></th>
-      <th><%= t("activerecord.attributes.machine.judgment") %></th>
-      <th><%= t("activerecord.attributes.machine.manufacturer") %></th>
-      <th><%= t("activerecord.attributes.machine.spec") %></th>
-      <th><%= t("activerecord.attributes.machine.archetype") %></th>
-      <th><%= t("activerecord.attributes.machine.introduction_date") %></th>
-      <th><%= t("activerecord.attributes.machine.introduction_season") %></th>
-      <th><%= t("activerecord.attributes.machine.overview") %></th>
-      <th><%= t("activerecord.attributes.machine.feature") %></th>
-      <th><%= t("activerecord.attributes.machine.evaluation_point") %></th>
-      <th><%= t("activerecord.attributes.machine.pros_and_cons") %></th>
-      <th><%= t("activerecord.attributes.machine.problem") %></th>
-      <th><%= t("activerecord.attributes.machine.other") %></th>
-      <th><%= t("activerecord.attributes.machine.conclusion") %></th>
-      <th><%= t("activerecord.attributes.machine.annotation") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,21 +14,6 @@
     <% @machines.each do |machine| %>
       <tr>
         <td><%= machine.name %></td>
-        <td><%= machine.kana %></td>
-        <td><%= machine.judgment %></td>
-        <td><%= machine.manufacturer %></td>
-        <td><%= machine.spec %></td>
-        <td><%= machine.archetype %></td>
-        <td><%= machine.introduction_date %></td>
-        <td><%= machine.introduction_season %></td>
-        <td><%= machine.overview %></td>
-        <td><%= machine.feature %></td>
-        <td><%= machine.evaluation_point %></td>
-        <td><%= machine.pros_and_cons %></td>
-        <td><%= machine.problem %></td>
-        <td><%= machine.other %></td>
-        <td><%= machine.conclusion %></td>
-        <td><%= machine.annotation %></td>
         <td><%= link_to 'Show', machine %></td>
         <td><%= link_to 'Edit', edit_machine_path(machine) %></td>
         <td><%= link_to 'Destroy', machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>

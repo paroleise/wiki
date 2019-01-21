@@ -1,82 +1,110 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
   <%= @machine.name %>
+</h2>
+<p>
+  【<%= @machine.kana %>】
 </p>
 
-<p>
-  <strong>Kana:</strong>
-  <%= @machine.kana %>
-</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <%= t("activerecord.attributes.machine.manufacturer") %>
+      </td>
+      <td>
+        <%= @machine.manufacturer %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("activerecord.attributes.machine.introduction_date") %>
+      </td>
+      <td>
+        <%= @machine.introduction_date %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("activerecord.attributes.machine.archetype") %>
+      </td>
+      <td>
+        <%= @machine.archetype %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("activerecord.attributes.machine.spec") %>
+      </td>
+      <td>
+        <%= @machine.spec %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("activerecord.attributes.machine.judgment") %>
+      </td>
+      <td>
+        <strong><%= @machine.judgment %></strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.overview") %></h3>
+  <p>
+    <%= @machine.overview %>
+  </p>
+</div>
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.feature") %></h3>
+  <p>
+    <%= @machine.feature %>
+  </p>
+</div>
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.evaluation_point") %></h3>
+  <p>
+    <%= @machine.evaluation_point %>
+  </p>
+</div>
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.pros_and_cons") %></h3>
+  <p>
+    <%= @machine.pros_and_cons %>
+  </p>
+</div>
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.problem") %></h3>
+  <p>
+    <%= @machine.problem %>
+  </p>
+</div>
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.other") %></h3>
+  <p>
+    <%= @machine.other %>
+  </p>
+</div>
+
+<div>
+  <h3><%= t("activerecord.attributes.machine.conclusion") %></h3>
+  <p>
+    <%= @machine.conclusion %>
+  </p>
+</div>
+
 
 <p>
-  <strong>Judgment:</strong>
-  <%= @machine.judgment %>
-</p>
-
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @machine.manufacturer %>
-</p>
-
-<p>
-  <strong>Spec:</strong>
-  <%= @machine.spec %>
-</p>
-
-<p>
-  <strong>Archetype:</strong>
-  <%= @machine.archetype %>
-</p>
-
-<p>
-  <strong>Introduction date:</strong>
-  <%= @machine.introduction_date %>
-</p>
-
-<p>
-  <strong>Introduction season:</strong>
-  <%= @machine.introduction_season %>
-</p>
-
-<p>
-  <strong>Overview:</strong>
-  <%= @machine.overview %>
-</p>
-
-<p>
-  <strong>Feature:</strong>
-  <%= @machine.feature %>
-</p>
-
-<p>
-  <strong>Evaluation point:</strong>
-  <%= @machine.evaluation_point %>
-</p>
-
-<p>
-  <strong>Pros and cons:</strong>
-  <%= @machine.pros_and_cons %>
-</p>
-
-<p>
-  <strong>Problem:</strong>
-  <%= @machine.problem %>
-</p>
-
-<p>
-  <strong>Other:</strong>
-  <%= @machine.other %>
-</p>
-
-<p>
-  <strong>Conclusion:</strong>
-  <%= @machine.conclusion %>
-</p>
-
-<p>
-  <strong>Annotation:</strong>
+  <%= t("activerecord.attributes.machine.annotation") %>
   <%= @machine.annotation %>
 </p>
 
