@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-  <% if object == "table" %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
+  <h4>
+    <%= t("activerecord.#{machine.name} ")%> の編集
+  </h4>
 
+  <% if object == "table" %>
     <div class="field">
       <%= form.label :kana %>
       <%= form.text_field :kana %>
