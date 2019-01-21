@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      machine: 機種
+    attributes:
+      machine:
+        name: 機種名
+        kana: 読み
+        judgment: 判定
+        manufacturer: メーカー
+        spec: スペック
+        type: タイプ
+        introduction_date: 導入日
+        introduction_season: 導入期間
+        overview: 概要
+        feature: 特徴
+        evaluation_point: 評価点
+        pros_and_cons: 賛否両論点
+        problem: 問題点
+        other: その他
+        conclusion: 総評
+        annotation: 注釈

@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  kana: MyString
+  judgment: MyString
+  manufacturer: MyString
+  spec: MyString
+  type: 
+  introduction_date: 2019-01-21
+  introduction_season: MyString
+  overview: MyString
+  feature: MyString
+  evaluation_point: MyString
+  pros_and_cons: MyString
+  problem: MyString
+  other: MyString
+  conclusion: MyString
+  annotation: MyString
+
+two:
+  name: MyString
+  kana: MyString
+  judgment: MyString
+  manufacturer: MyString
+  spec: MyString
+  type: 
+  introduction_date: 2019-01-21
+  introduction_season: MyString
+  overview: MyString
+  feature: MyString
+  evaluation_point: MyString
+  pros_and_cons: MyString
+  problem: MyString
+  other: MyString
+  conclusion: MyString
+  annotation: MyString
