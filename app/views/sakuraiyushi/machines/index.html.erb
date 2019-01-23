@@ -1,0 +1,28 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h4 class="pt-5">機種一覧</h4>
+  <p class="text-right pb-3">
+    <%= link_to "新機種の記事を作成する", new_sakuraiyushi_machine_path %>
+  </p>
+  <table class="table container list-table superviser-list-table">
+    <thead>
+      <tr>
+        <th><%= t("activerecord.attributes.machine.name") %></th>
+        <th><%= t("activerecord.attributes.machine.manufacturer") %></th>
+        <th><%= t("activerecord.attributes.machine.updated_at") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @machines.each do |machine| %>
+        <tr>
+          <td><%= link_to sakuraiyushi_machine_path(machine) do %><%= machine.name %><% end %></td>
+          <td><%= t("machine.manufacture.#{machine.manufacturer}")%></td>
+          <td><%= machine.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+          <td><%= link_to '編集', edit_sakuraiyushi_machine_path(machine) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

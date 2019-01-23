@@ -16,3 +16,22 @@
  */
 
 @import "bootstrap";
+
+.header, .user_header, .admin_header {
+  width: 100%;
+  a {
+    color: #fff;
+  }
+}
+
+.header {
+  background-color: #000;
+}
+
+.user_header {
+  background-color: #009;
+}
+
+.admin_header {
+  background: #900;
+}

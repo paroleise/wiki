@@ -19,10 +19,13 @@ Rails.application.routes.draw do
 
   namespace :sakuraiyushi do
     root "top#index"
+    resources :users
+    resources :machines
+    post "mod", to: "machines#mod", as: "mod"
   end
 
 
   resources :machines
-  post "modify", to: "machines#modify", as: "modify"
+  post "mod", to: "machines#mod", as: "mod"
   root 'top#index'
 end

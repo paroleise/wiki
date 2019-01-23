@@ -1,0 +1,14 @@
+.superviser-list-table {
+  thead {
+    background: #000;
+    color: #fff;
+  }
+  tbody tr{
+    &:nth-child(odd) {
+      background-color: #dfe0de;
+    }
+    &:nth-child(even) {
+      background-color: #f0f2ef;
+    }
+  }
+}
