@@ -1,11 +1,9 @@
-class MachinesController < ApplicationController
+class Sakuraiyushi::MachinesController < Sakuraiyushi::ApplicationController
   before_action :set_machine, only: [:show, :edit, :update, :destroy, :mod]
-
 
   def index
     @machines = Machine.all
   end
-
 
   def show
   end
