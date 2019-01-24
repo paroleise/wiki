@@ -1,10 +1,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <h4 class="pt-5"><%= @machine.name %>の編集履歴</h4>
-  <p class="text-right pb-3">
-    <%= link_to "新機種の記事を作成する", new_sakuraiyushi_machine_path %>
-  </p>
-  <table class="table container list-table superviser-list-table">
+  <h4 class="pt-5 pb-2"><%= @machine.name %>の編集履歴</h4>
+  <table class="table container list-table superviser-list-table mt-5">
     <thead>
       <tr>
         <th>更新日</th>
