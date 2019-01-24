@@ -1,8 +1,40 @@
-<p class="mt-5"><%= @machine.name %></p>
-<p><%= @machine.updated_at %></p>
-<hr>
-<% @versions.order(created_at: :asc).reverse_each do |version| %>
-<p><%= version.reify.name %></p>
-<p><%= version.created_at %></p>
-<hr />
-<% end %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h4 class="pt-5"><%= @machine.name %>の編集履歴</h4>
+  <p class="text-right pb-3">
+    <%= link_to "新機種の記事を作成する", new_sakuraiyushi_machine_path %>
+  </p>
+  <table class="table container list-table superviser-list-table">
+    <thead>
+      <tr>
+        <th>更新日</th>
+        <th>差分</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>編集者</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @machine.updated_at %></td>
+        <td> 最新のページ </td>
+        <td> -- </td>
+        <td> -- </td>
+        <td> 編集 </td>
+        <td></td>
+      </tr>
+
+      <% @versions.order(created_at: :asc).reverse_each do |version| %>
+        <tr>
+          <td><%= version.created_at %></td>
+          <td>差分</td>
+          <td>現在との差分</td>
+          <td>表示</td>
+          <td>反映</td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
