@@ -1,0 +1,8 @@
+<p class="mt-5"><%= @machine.name %></p>
+<p><%= @machine.updated_at %></p>
+<hr>
+<% @versions.order(created_at: :asc).reverse_each do |version| %>
+<p><%= version.reify.name %></p>
+<p><%= version.created_at %></p>
+<hr />
+<% end %>

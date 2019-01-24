@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
   devise_for :administrators, controllers: {
-      sessions: 'administrators/sessions',
+    sessions: 'administrators/sessions',
   }, path: 'sakuraiyushi'
 
 
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :users
     resources :machines
     post "mod", to: "machines#mod", as: "mod"
+    get "machines/:id/versions", to: "machines#versions", as: "versions"
+    get "history", to: "machines#history", as: "history"
   end
 
 

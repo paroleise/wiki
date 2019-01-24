@@ -1,5 +1,5 @@
 class Sakuraiyushi::MachinesController < Sakuraiyushi::ApplicationController
-  before_action :set_machine, only: [:show, :edit, :update, :destroy, :mod]
+  before_action :set_machine, only: [:show, :versions, :edit, :update, :destroy, :mod]
 
   def index
     @machines = Machine.all
@@ -8,11 +8,17 @@ class Sakuraiyushi::MachinesController < Sakuraiyushi::ApplicationController
   def show
   end
 
-
   def new
     @machine = Machine.new
   end
 
+  def history
+    @machines = Machine.all.order(updated_at: :desc)
+  end
+
+  def versions
+    @versions = @machine.versions
+  end
 
   def edit
   end
