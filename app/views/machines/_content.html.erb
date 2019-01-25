@@ -1,0 +1,122 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h2>
+    <%= @machine.name %>
+  </h2>
+  <p>
+    【<%= @machine.kana %>】
+  </p>
+
+  <table class="show-table">
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "table"), method: :post %>
+    <tbody>
+      <tr>
+        <td>
+          <%= t("activerecord.attributes.machine.manufacturer") %>
+        </td>
+        <td>
+          <%= t("machine.manufacture.#{@machine.manufacturer}")%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= t("activerecord.attributes.machine.introduction_date") %>
+        </td>
+        <td>
+          <%= t("machine.introduction_date.#{@machine.introduction_date}")%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= t("activerecord.attributes.machine.archetype") %>
+        </td>
+        <td>
+          <%= t("machine.archetype.#{@machine.archetype}")%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= t("activerecord.attributes.machine.spec") %>
+        </td>
+        <td>
+          <%= t("machine.spec.#{@machine.spec}")%>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= t("activerecord.attributes.machine.judgment") %>
+        </td>
+        <td>
+          <strong><%= t("machine.judgment.#{@machine.judgment}")%></strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.overview") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "overview"), method: :post %>
+    <p>
+      <%== @machine.overview %>
+    </p>
+  </div>
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.feature") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "feature"), method: :post %>
+    <p>
+      <%== @machine.feature %>
+    </p>
+  </div>
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.evaluation_point") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "evaluation_point"), method: :post %>
+    <p>
+      <%== @machine.evaluation_point %>
+    </p>
+  </div>
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.pros_and_cons") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "pros_and_cons"), method: :post %>
+    <p>
+      <%== @machine.pros_and_cons %>
+    </p>
+  </div>
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.problem") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "problem"), method: :post %>
+    <p>
+      <%== @machine.problem %>
+    </p>
+  </div>
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.other") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post %>
+    <p>
+      <%== @machine.other %>
+    </p>
+  </div>
+
+  <div>
+    <h3><%= t("activerecord.attributes.machine.conclusion") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "conclusion"), method: :post %>
+    <p>
+      <%== @machine.conclusion %>
+    </p>
+  </div>
+
+
+  <p>
+    <%= t("activerecord.attributes.machine.annotation") %>
+    <%= @machine.annotation %>
+  </p>
+
+
+  <%= link_to 'Back', machines_path %>
+</div>

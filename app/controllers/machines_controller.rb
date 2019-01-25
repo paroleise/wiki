@@ -10,6 +10,13 @@ class MachinesController < ApplicationController
   def show
   end
 
+  def trace
+    @version = Machine.find(params[:id]).versions.last
+    (params[:index].to_i - 1).times do
+      @version = @version.previous
+    end
+    @machine = @version.reify
+  end
 
   def new
     @machine = Machine.new

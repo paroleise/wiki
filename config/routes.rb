@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
 
   resources :machines
+  post "trace", to: "machines#trace", as: "trace"
   post "mod", to: "machines#mod", as: "mod"
   root 'top#index'
 end
