@@ -1,4 +1,18 @@
-<div style="height: 100vh;">サイドバー</div>
+<div style="height: 100vh;">
+
+  <p>最終更新日時<br><%= @sidebar_machines.first.updated_at %></p>
+
+  <% @dates.each do |date| %>
+    <p>
+      <%= date %> <br>
+      <% @sidebar_machines.where(updated_at: date.all_day).each do |machine| %>
+        <%= link_to "#{machine.name}", machine_path(machine) %><br>
+      <% end %>
+    </p>
+  <% end %>
+
+
+</div>
 
 
 

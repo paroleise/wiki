@@ -1,9 +1,13 @@
 class MachinesController < ApplicationController
-  before_action :set_machine, only: [:show, :edit, :update, :destroy, :mod]
+  before_action :set_machine, only: [:show, :versions, :edit, :update, :destroy, :mod]
   before_action :search_past_article, only: [:trace, :degenerate]
 
   def index
     @machines = Machine.all
+  end
+
+  def versions
+    @versions = @machine.versions
   end
 
   def show

@@ -11,13 +11,7 @@
   </head>
 
   <body>
-    <% if administrator_signed_in? %>
-      <%= render 'layouts/adminheader' %>
-    <% elsif user_signed_in? %>
-      <%= render 'layouts/userheader' %>
-    <% else %>
-      <%= render 'layouts/header' %>
-    <% end %>
+    <%= render 'layouts/header' %>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar" style="background: #f4f4f4">

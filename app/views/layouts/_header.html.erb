@@ -1,6 +1,16 @@
-<header class="header">
+<header class="<%= return_character_class %>header">
   <%= link_to "トップ", root_path %>
   <%= link_to "機種一覧", machines_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "管理者ログイン", sakuraiyushi_root_path %>
+  <%#= link_to "編集履歴", "" %>
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <% elsif administrator_signed_in? %>
+    <%= link_to "参加者一覧", sakuraiyushi_users_path %>
+    <%= link_to "ブラックリスト", ""%>
+    <%= link_to "ログアウト", destroy_administrator_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "管理者ログイン", sakuraiyushi_root_path %>
+  <% end %>
 </header>
+

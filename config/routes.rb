@@ -22,12 +22,12 @@ Rails.application.routes.draw do
     resources :users
     resources :machines
     post "mod", to: "machines#mod", as: "mod"
-    get "machines/:id/versions", to: "machines#versions", as: "versions"
     get "history", to: "machines#history", as: "history"
   end
 
 
   resources :machines
+  get "machines/:id/versions", to: "machines#versions", as: "versions"
   post "trace", to: "machines#trace", as: "trace"
   post "mod", to: "machines#mod", as: "mod"
   post "degenerate", to: "machines#degenerate", as: "degenerate"
