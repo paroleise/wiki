@@ -9,18 +9,16 @@
         <th></th>
         <th></th>
         <th></th>
-        <th></th>
         <th>編集者</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><%= @machine.updated_at %></td>
-        <td> 最新のページ </td>
+        <td><%= link_to "#{@machine.updated_at}", machine_path(@machine) %></td>
+        <td>最新のページ</td>
         <td> -- </td>
-        <td> -- </td>
-        <td> 編集 </td>
-        <td></td>
+        <td><%= link_to "表示", machine_path(@machine) %></td>
+        <td><%= link_to "編集", edit_machine_path(@machine) %></td>
         <td></td>
       </tr>
 
@@ -30,8 +28,7 @@
           <td>差分</td>
           <td>現在との差分</td>
           <td><%= link_to "表示", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
-          <td><%= link_to "編集", mod_path(id: @machine.id, object: "table"), method: :post %></td>
-          <td>反映</td>
+          <td><%= link_to "反映", degenerate_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td></td>
         </tr>
       <% end %>

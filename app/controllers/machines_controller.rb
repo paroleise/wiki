@@ -1,17 +1,15 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :edit, :update, :destroy, :mod]
-
+  before_action :search_past_article, only: [:trace, :degenerate]
 
   def index
     @machines = Machine.all
   end
 
-
   def show
   end
 
   def trace
-    @version = Machine.find(params[:id]).versions.last
     (params[:index].to_i - 1).times do
       @version = @version.previous
     end
@@ -28,6 +26,13 @@ class MachinesController < ApplicationController
 
   def mod
     @object = params[:object]
+  end
+
+  def degenerate
+    (params[:index].to_i - 1).times do
+      @version = @version.previous
+    end
+    @machine = @version.reify
   end
 
 
@@ -75,4 +80,9 @@ class MachinesController < ApplicationController
     def machine_params
       params.require(:machine).permit(:name, :kana, :judgment, :manufacturer, :spec, :archetype, :introduction_date, :introduction_season, :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other, :conclusion, :annotation)
     end
+
+    def search_past_article
+      @version = Machine.find(params[:id]).versions.last
+    end
+
 end
