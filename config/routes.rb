@@ -19,10 +19,9 @@ Rails.application.routes.draw do
 
   namespace :sakuraiyushi do
     root "top#index"
-    resources :users
-    resources :machines
+    resources :users, :only => :index
+    resources :machines, :only => :index
     post "mod", to: "machines#mod", as: "mod"
-    get "history", to: "machines#history", as: "history"
   end
 
 

@@ -1,7 +1,10 @@
 <header class="<%= return_character_class %>header">
   <%= link_to "トップ", root_path %>
-  <%= link_to "機種一覧", machines_path %>
-  <%#= link_to "編集履歴", "" %>
+  <% if administrator_signed_in? %>
+    <%= link_to "機種一覧", sakuraiyushi_machines_path %>
+  <% else %>
+    <%= link_to "機種一覧", machines_path %>
+  <% end %>
   <% if user_signed_in? %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   <% elsif administrator_signed_in? %>

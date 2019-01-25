@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
   <h4 class="pt-5">機種一覧</h4>
   <p class="text-right pb-3">
-    <%= link_to "新機種の記事を作成する", new_sakuraiyushi_machine_path %>
+    <%= link_to "新機種の記事を作成する", new_machine_path %>
   </p>
   <table class="table container list-table superviser-list-table">
     <thead>
@@ -17,10 +17,10 @@
     <tbody>
       <% @machines.each do |machine| %>
         <tr>
-          <td><%= link_to sakuraiyushi_machine_path(machine) do %><%= machine.name %><% end %></td>
+          <td><%= link_to machine_path(machine) do %><%= machine.name %><% end %></td>
           <td><%= t("machine.manufacture.#{machine.manufacturer}")%></td>
           <td><%= machine.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-          <td><%= link_to '編集', edit_sakuraiyushi_machine_path(machine) %></td>
+          <td><%= link_to '編集', edit_machine_path(machine) %></td>
           <td><%= link_to '編集履歴', versions_path(machine) %></td>
         </tr>
       <% end %>
