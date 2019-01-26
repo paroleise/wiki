@@ -20,10 +20,12 @@ class MachinesController < ApplicationController
     @machine = @version.reify
   end
 
+  def diff
+  end
+
   def new
     @machine = Machine.new
   end
-
 
   def edit
   end
@@ -39,7 +41,6 @@ class MachinesController < ApplicationController
     @machine = @version.reify
   end
 
-
   def create
     @machine = Machine.new(machine_params)
 
@@ -54,7 +55,6 @@ class MachinesController < ApplicationController
     end
   end
 
-
   def update
     respond_to do |format|
       if @machine.update(machine_params)
@@ -66,7 +66,6 @@ class MachinesController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @machine.destroy

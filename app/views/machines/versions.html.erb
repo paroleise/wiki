@@ -25,7 +25,7 @@
       <% @versions.order(created_at: :asc).each_with_index.reverse_each do |version, i| %>
         <tr>
           <td><%= link_to "#{version.created_at}", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
-          <td>差分</td>
+          <td><%= link_to "差分", diff_path(id: @machine.id), method: :post %></td>
           <td>現在との差分</td>
           <td><%= link_to "表示", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td><%= link_to "反映", degenerate_path(id: @machine.id, index: @versions.count - i), method: :post %></td>

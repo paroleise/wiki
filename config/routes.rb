@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   post "trace", to: "machines#trace", as: "trace"
   post "mod", to: "machines#mod", as: "mod"
   post "degenerate", to: "machines#degenerate", as: "degenerate"
+  post "diff", to: "machines#diff", as: "diff"
   root 'top#index'
 end
