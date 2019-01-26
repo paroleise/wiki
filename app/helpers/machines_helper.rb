@@ -20,4 +20,8 @@ module MachinesHelper
     }.join('')
   end
 
+  def be_diff?(str1, str2)
+    str1 == str2
+  end
+
 end

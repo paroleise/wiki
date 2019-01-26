@@ -21,7 +21,13 @@
           <td><%= t("machine.manufacture.#{machine.manufacturer}")%></td>
           <td><%= machine.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
           <td><%= link_to '編集', edit_machine_path(machine) %></td>
-          <td><%= link_to '編集履歴', versions_path(machine) %></td>
+          <td>
+            <% if machine.versions.last %>
+              <%= link_to '編集履歴', versions_path(machine) %>
+            <% else %>
+              未編集
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

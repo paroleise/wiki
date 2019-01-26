@@ -16,11 +16,16 @@
   background-color: #cfc;
   span {
     color: green;
+    font-weight: bold;
   }
 }
 .diff-old {
   background-color: #fcc;
   span {
     color: crimson;
+    font-weight: bold;
   }
+}
+.diff-changes-head {
+  color: #666;
 }

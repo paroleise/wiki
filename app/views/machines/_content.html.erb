@@ -63,7 +63,7 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.overview) %>">
+  <div class="<%= content_nil?(@machine.feature) %>">
     <h3><%= t("activerecord.attributes.machine.feature") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "feature"), method: :post %>
     <p>
@@ -71,7 +71,7 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.overview) %>">
+  <div class="<%= content_nil?(@machine.evaluation_point) %>">
     <h3><%= t("activerecord.attributes.machine.evaluation_point") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "evaluation_point"), method: :post %>
     <p>
@@ -79,7 +79,7 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.overview) %>">
+  <div class="<%= content_nil?(@machine.pros_and_cons) %>">
     <h3><%= t("activerecord.attributes.machine.pros_and_cons") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "pros_and_cons"), method: :post %>
     <p>
@@ -87,7 +87,7 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.overview) %>">
+  <div class="<%= content_nil?(@machine.problem) %>">
     <h3><%= t("activerecord.attributes.machine.problem") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "problem"), method: :post %>
     <p>
@@ -95,7 +95,7 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.overview) %>">
+  <div class="<%= content_nil?(@machine.other) %>">
     <h3><%= t("activerecord.attributes.machine.other") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post %>
     <p>
@@ -103,7 +103,7 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.overview) %>">
+  <div class="<%= content_nil?(@machine.conclusion) %>">
     <h3><%= t("activerecord.attributes.machine.conclusion") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "conclusion"), method: :post %>
     <p>

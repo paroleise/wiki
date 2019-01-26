@@ -17,7 +17,7 @@
         <td><%= link_to "#{@machine.updated_at}", machine_path(@machine) %></td>
         <td>
           <% if @versions.last.previous %>
-            <%= link_to "差分", diff_path(id: @machine.id, index: 0, current: true), method: :post %>
+            <%= link_to "一つ前との差分", diff_path(id: @machine.id, index: 0, current: true), method: :post %>
             <% else %>
             --
           <% end %>
@@ -33,12 +33,12 @@
           <td><%= link_to "#{version.created_at}", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td>
             <% if version.previous %>
-              <%= link_to "差分", diff_path(id: @machine.id, index: @versions.count - i), method: :post %>
+              <%= link_to "一つ前との差分", diff_path(id: @machine.id, index: @versions.count - i), method: :post %>
               <% else %>
               --
             <% end %>
           </td>
-          <td>現在との差分</td>
+          <td><%= link_to "現在との差分", nowdiff_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td><%= link_to "表示", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td><%= link_to "反映", degenerate_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td></td>

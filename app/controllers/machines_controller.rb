@@ -1,6 +1,6 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :versions, :edit, :update, :destroy, :mod]
-  before_action :search_past_article, only: [:trace, :diff, :degenerate]
+  before_action :search_past_article, only: [:trace, :diff, :nowdiff, :degenerate]
 
   def index
     @machines = Machine.all
@@ -8,6 +8,9 @@ class MachinesController < ApplicationController
 
   def versions
     @versions = @machine.versions
+    unless @versions.last
+      redirect_to machine_path(@machine)
+    end
   end
 
   def show
@@ -19,6 +22,11 @@ class MachinesController < ApplicationController
   def diff
     @previous = @version.previous.reify if @version.previous
     set_machine if params[:current]
+  end
+
+  def nowdiff
+    @previous = @machine
+    @machine = Machine.find(params[:id])
   end
 
   def new
