@@ -91,11 +91,6 @@
       <%= f.text_field :conclusion, class: "quill_container" %>
     <% end %>
 
-    <% if object == "annotation" %> <%#TODO: 注釈レコードを関連づけて表示 %>
-        <%= form.label :annotation %>
-        <%= form.text_field :annotation %>
-    <% end %>
-
     <div class="actions">
       <%= f.button :submit, class: 'btn-primary mt-4' %>
     </div>
