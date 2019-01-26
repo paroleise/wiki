@@ -1,6 +1,6 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :versions, :edit, :update, :destroy, :mod]
-  before_action :search_past_article, only: [:trace, :degenerate]
+  before_action :search_past_article, only: [:trace, :diff, :degenerate]
 
   def index
     @machines = Machine.all
@@ -21,6 +21,11 @@ class MachinesController < ApplicationController
   end
 
   def diff
+    (params[:index].to_i - 1).times do
+      @version = @version.previous
+    end
+    @machine = @version.reify
+    @previous = @version.previous.reify
   end
 
   def new
