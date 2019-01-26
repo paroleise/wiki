@@ -1,2 +1,92 @@
-このときの状態　: <%= @machine.name %> <br>
-一つ前の状態　：　<%= @previous.name %>
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.overview, @previous.overview) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.overview, @machine.overview) %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.feature, @previous.feature) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.feature, @machine.feature) %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.evaluation_point, @previous.evaluation_point) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.evaluation_point, @machine.evaluation_point) %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.pros_and_cons, @previous.pros_and_cons) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.pros_and_cons, @machine.pros_and_cons) %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.problem, @previous.problem) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.problem, @machine.problem) %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.other, @previous.other) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.other, @machine.other) %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="col-sm-6">
+    <div class="diff-new">
+      <%== decorate_diff(@machine.conclusion, @previous.conclusion) %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="diff-old">
+      <%== decorate_diff(@previous.conclusion, @machine.conclusion) %>
+    </div>
+  </div>
+
+</div>

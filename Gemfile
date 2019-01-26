@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-
+gem 'diff-lcs'
 gem 'paper_trail'
 
 # Use ActiveStorage variant

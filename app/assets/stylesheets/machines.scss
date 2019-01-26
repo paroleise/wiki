@@ -10,3 +10,17 @@
     border: solid 1px #555;
   }
 }
+
+//diff
+.diff-new {
+  background-color: #cfc;
+  span {
+    color: green;
+  }
+}
+.diff-old {
+  background-color: #fcc;
+  span {
+    color: crimson;
+  }
+}

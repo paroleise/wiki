@@ -14,18 +14,11 @@ class MachinesController < ApplicationController
   end
 
   def trace
-    (params[:index].to_i - 1).times do
-      @version = @version.previous
-    end
-    @machine = @version.reify
   end
 
   def diff
-    (params[:index].to_i - 1).times do
-      @version = @version.previous
-    end
-    @machine = @version.reify
-    @previous = @version.previous.reify
+    @previous = @version.previous.reify if @version.previous
+    set_machine if params[:current]
   end
 
   def new
@@ -40,10 +33,6 @@ class MachinesController < ApplicationController
   end
 
   def degenerate
-    (params[:index].to_i - 1).times do
-      @version = @version.previous
-    end
-    @machine = @version.reify
   end
 
   def create
@@ -91,6 +80,10 @@ class MachinesController < ApplicationController
 
     def search_past_article
       @version = Machine.find(params[:id]).versions.last
+      (params[:index].to_i - 1).times do
+        @version = @version.previous
+      end
+      @machine = @version.reify
     end
 
 end
