@@ -20,7 +20,8 @@ ja:
         problem: 問題点
         other: その他
         conclusion: 総評
-        annotation: 注釈
+        degression: 余談
+        details: 詳細スペック
         created_at: 作成日
         updated_at: 更新日
       user:

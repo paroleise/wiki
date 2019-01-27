@@ -56,6 +56,11 @@
       </div>
     <% end %>
 
+    <% if object == "details" %>
+      <%= f.label :details %>
+      <%= f.text_field :details, class: "quill_container" %>
+    <% end %>
+
     <% if object == "overview" %>
       <%= f.label :overview %>
       <%= f.text_field :overview, class: "quill_container" %>
@@ -81,14 +86,19 @@
       <%= f.text_field :problem, class: "quill_container" %>
     <% end %>
 
-    <% if object == "other" %>
-      <%= f.label :other %>
-      <%= f.text_field :other, class: "quill_container" %>
-    <% end %>
-
     <% if object == "conclusion" %>
       <%= f.label :conclusion %>
       <%= f.text_field :conclusion, class: "quill_container" %>
+    <% end %>
+
+    <% if object == "degression" %>
+      <%= f.label :degression %>
+      <%= f.text_field :degression, class: "quill_container" %>
+    <% end %>
+
+    <% if object == "other" %>
+      <%= f.label :other %>
+      <%= f.text_field :other, class: "quill_container" %>
     <% end %>
 
     <div class="actions">

@@ -1,5 +1,24 @@
 <div class="row">
 
+  <% unless be_diff?(machine.details, previous.details) %>
+    <div class="col-sm-12">
+      <hr>
+      <b><%= t("activerecord.attributes.machine.details") %></b>
+    </div>
+    <div class="col-sm-6">
+      <p class="diff-changes-head">編集前の内容</p>
+      <div class="diff-old">
+        <%== decorate_diff(previous.details, machine.details) %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p class="diff-changes-head"><% if current %>現在<% else %>編集後<% end %>の内容</p>
+      <div class="diff-new">
+        <%== decorate_diff(machine.details, previous.details) %>
+      </div>
+    </div>
+  <% end %>
+
   <% unless be_diff?(machine.overview, previous.overview) %>
     <div class="col-sm-12">
       <hr>
@@ -99,6 +118,43 @@
     </div>
   <% end %>
 
+  <% unless be_diff?(machine.conclusion, previous.conclusion) %>
+    <div class="col-sm-12">
+      <hr>
+      <b><%= t("activerecord.attributes.machine.conclusion") %></b>
+    </div>
+    <div class="col-sm-6">
+      <p class="diff-changes-head">編集前の内容</p>
+      <div class="diff-old">
+        <%== decorate_diff(previous.conclusion, machine.conclusion) %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p class="diff-changes-head"><% if current %>現在<% else %>編集後<% end %>の内容</p>
+      <div class="diff-new">
+        <%== decorate_diff(machine.conclusion, previous.conclusion) %>
+      </div>
+    </div>
+  <% end %>
+
+  <% unless be_diff?(machine.degression, previous.degression) %>
+    <div class="col-sm-12">
+      <hr>
+      <b><%= t("activerecord.attributes.machine.degression") %></b>
+    </div>
+    <div class="col-sm-6">
+      <p class="diff-changes-head">編集前の内容</p>
+      <div class="diff-old">
+        <%== decorate_diff(previous.degression, machine.degression) %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p class="diff-changes-head"><% if current %>現在<% else %>編集後<% end %>の内容</p>
+      <div class="diff-new">
+        <%== decorate_diff(machine.degression, previous.degression) %>
+      </div>
+    </div>
+  <% end %>
 
   <% unless be_diff?(machine.other, previous.other) %>
     <div class="col-sm-12">
@@ -115,26 +171,6 @@
       <p class="diff-changes-head"><% if current %>現在<% else %>編集後<% end %>の内容</p>
       <div class="diff-new">
         <%== decorate_diff(machine.other, previous.other) %>
-      </div>
-    </div>
-  <% end %>
-
-
-  <% unless be_diff?(machine.conclusion, previous.conclusion) %>
-    <div class="col-sm-12">
-      <hr>
-      <b><%= t("activerecord.attributes.machine.conclusion") %></b>
-    </div>
-    <div class="col-sm-6">
-      <p class="diff-changes-head">編集前の内容</p>
-      <div class="diff-old">
-        <%== decorate_diff(previous.conclusion, machine.conclusion) %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <p class="diff-changes-head"><% if current %>現在<% else %>編集後<% end %>の内容</p>
-      <div class="diff-new">
-        <%== decorate_diff(machine.conclusion, previous.conclusion) %>
       </div>
     </div>
   <% end %>

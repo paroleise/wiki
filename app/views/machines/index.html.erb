@@ -11,6 +11,7 @@
         <th><%= t("activerecord.attributes.machine.manufacturer") %></th>
         <th><%= t("activerecord.attributes.machine.archetype") %></th>
         <th><%= t("activerecord.attributes.machine.spec") %></th>
+        <th><%= t("activerecord.attributes.machine.overview") %></th>
       </tr>
     </thead>
 
@@ -22,6 +23,7 @@
           <td><%= t("machine.manufacturer.#{machine.manufacturer}") %></td>
           <td><%= t("machine.archetype.#{machine.archetype}") %></td>
           <td><%= t("machine.judgment.#{machine.judgment}") %></td>
+          <td><%== machine.overview.gsub(/<(".*?"|'.*?'|[^'"])*?>/, "") %></td>
         </tr>
       <% end %>
     </tbody>

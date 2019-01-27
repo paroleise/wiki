@@ -54,6 +54,13 @@
     </tbody>
   </table>
 
+  <div class="<%= content_nil?(@machine.details) %>">
+    <h3><%= t("activerecord.attributes.machine.details") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "details"), method: :post %>
+    <p>
+      <%== @machine.details %>
+    </p>
+  </div>
 
   <div class="<%= content_nil?(@machine.overview) %>">
     <h3><%= t("activerecord.attributes.machine.overview") %></h3>
@@ -95,14 +102,6 @@
     </p>
   </div>
 
-  <div class="<%= content_nil?(@machine.other) %>">
-    <h3><%= t("activerecord.attributes.machine.other") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post %>
-    <p>
-      <%== @machine.other %>
-    </p>
-  </div>
-
   <div class="<%= content_nil?(@machine.conclusion) %>">
     <h3><%= t("activerecord.attributes.machine.conclusion") %></h3>
     <%= link_to "[編集]", mod_path(id: @machine.id, object: "conclusion"), method: :post %>
@@ -111,7 +110,13 @@
     </p>
   </div>
 
-
+  <div class="<%= content_nil?(@machine.other) %>">
+    <h3><%= t("activerecord.attributes.machine.other") %></h3>
+    <%= link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post %>
+    <p>
+      <%== @machine.other %>
+    </p>
+  </div>
 
   <%= link_to 'Back', machines_path %>
 </div>

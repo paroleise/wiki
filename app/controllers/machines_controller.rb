@@ -104,7 +104,10 @@ class MachinesController < ApplicationController
     end
 
     def machine_params
-      params.require(:machine).permit(:name, :kana, :judgment, :manufacturer, :spec, :archetype, :introduction_date, :introduction_season, :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other, :conclusion, :annotation)
+      params.require(:machine).permit(:name, :kana, :judgment,
+        :manufacturer, :spec, :archetype, :introduction_date, :introduction_season,
+        :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other,
+        :conclusion, :degression, :details)
     end
 
     def search_past_article

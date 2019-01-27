@@ -24,7 +24,6 @@ var defaults = {
   theme: 'snow',
   modules: {
     toolbar: [
-      [{ 'header': [1, 2, false] }],
       [{ 'color': [] }, { 'background': [] }],
       ['bold', 'italic', 'underline', 'strike'],
       ['blockquote', 'code-block'],
@@ -33,6 +32,6 @@ var defaults = {
       ['link']
     ]
   },
-  placeholder: '記事を入力してください',
+  placeholder: '記事を入力してください。未入力の場合、項目は表示されません。',
 };
 Quilljs.setDefaults(defaults)

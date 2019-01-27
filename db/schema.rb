@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_24_142731) do
+ActiveRecord::Schema.define(version: 2019_01_27_105222) do
 
   create_table "administrators", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(version: 2019_01_24_142731) do
     t.string "problem"
     t.string "other"
     t.string "conclusion"
-    t.string "annotation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "degression"
+    t.string "details"
   end
 
   create_table "users", force: :cascade do |t|
