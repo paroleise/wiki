@@ -43,7 +43,7 @@
                                          ["権利・セット", :set], ["変則", :hensoku], ["未分類", :uncategorized]] %>
     </div>
     <div class="row pl-3 mb-3">
-      <%= f.input :introduction_date, as: :date %>
+      <%= f.date_select :introduction_date, discard_day: true %>
     </div>
     <div class="row pl-3 mb-3">
       <%= f.input :introduction_season %>

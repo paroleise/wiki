@@ -19,7 +19,7 @@
       <% @machines.each do |machine| %>
         <tr>
           <td><%= link_to "#{machine.name}", machine %></td>
-          <td><%= machine.introduction_date %></td>
+          <td><%= machine.introduction_date.strftime("%Y年%m月") %></td>
           <td><%= t("machine.manufacturer.#{machine.manufacturer}") %></td>
           <td><%= t("machine.archetype.#{machine.archetype}") %></td>
           <td><%= t("machine.judgment.#{machine.judgment}") %></td>
