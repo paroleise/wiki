@@ -4,23 +4,23 @@ class MachinesController < ApplicationController
 
   def index
     if params[:manufacturer]
-      @machines = Machine.all.where(manufacturer: params[:manufacturer])
+      @machines = Machine.all.where(manufacturer: params[:manufacturer]).order(introduction_date: :asc)
       @divided = "manufacturer"
       @value = params[:manufacturer]
     elsif params[:archetype]
-      @machines = Machine.all.where(archetype: params[:archetype])
+      @machines = Machine.all.where(archetype: params[:archetype]).order(introduction_date: :desc)
       @divided = "archetype"
       @value = params[:archetype]
     elsif params[:spec]
-      @machines = Machine.all.where(spec: params[:spec])
+      @machines = Machine.all.where(spec: params[:spec]).order(introduction_date: :desc)
       @divided = "spec"
       @value = params[:spec]
     elsif params[:judgment]
-      @machines = Machine.all.where(judgment: params[:judgment])
+      @machines = Machine.all.where(judgment: params[:judgment]).order(introduction_date: :desc)
       @divided = "judgment"
       @value = params[:judgment]
     else
-      @machines = Machine.all
+      @machines = Machine.all.order(introduction_date: :desc)
       @divided = nil
       @value = nil
     end

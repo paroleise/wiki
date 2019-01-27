@@ -24,7 +24,7 @@
           <%= t("activerecord.attributes.machine.introduction_date") %>
         </td>
         <td>
-          <%= t("machine.introduction_date.#{@machine.introduction_date}")%>
+          <%= @machine.introduction_date.strftime("%Y年%m月%d日") %>
         </td>
       </tr>
       <tr>
