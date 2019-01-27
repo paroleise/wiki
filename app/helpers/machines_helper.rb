@@ -7,7 +7,6 @@ module MachinesHelper
     end
   end
 
-
   def decorate_diff(str1, str2)
     fixed_str1 = str1.gsub(/<(".*?"|'.*?'|[^'"])*?>/, "")
     fixed_str2 = str2.gsub(/<(".*?"|'.*?'|[^'"])*?>/, "")
@@ -22,6 +21,14 @@ module MachinesHelper
 
   def be_diff?(str1, str2)
     str1 == str2
+  end
+
+  def index_filter(value, divided)
+    if value
+      t("activerecord.attributes.machine.#{divided}") + " : " + t("machine.#{divided}.#{value}") + "の"
+    else
+      nil
+    end
   end
 
 end

@@ -3,7 +3,28 @@ class MachinesController < ApplicationController
   before_action :search_past_article, only: [:trace, :diff, :nowdiff, :degenerate]
 
   def index
-    @machines = Machine.all
+    if params[:manufacturer]
+      @machines = Machine.all.where(manufacturer: params[:manufacturer])
+      @divided = "manufacturer"
+      @value = params[:manufacturer]
+    elsif params[:archetype]
+      @machines = Machine.all.where(archetype: params[:archetype])
+      @divided = "archetype"
+      @value = params[:archetype]
+    elsif params[:spec]
+      @machines = Machine.all.where(spec: params[:spec])
+      @divided = "spec"
+      @value = params[:spec]
+    elsif params[:judgment]
+      @machines = Machine.all.where(judgment: params[:judgment])
+      @divided = "judgment"
+      @value = params[:judgment]
+    else
+      @machines = Machine.all
+      @divided = nil
+      @value = nil
+    end
+
   end
 
   def versions

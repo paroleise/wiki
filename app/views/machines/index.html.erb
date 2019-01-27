@@ -1,22 +1,27 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Machines</h1>
+  <h1><%= index_filter(@value, @divided) %>機種一覧</h1>
 
   <table>
     <thead>
       <tr>
         <th><%= t("activerecord.attributes.machine.name") %></th>
-        <th colspan="2"></th>
+        <th><%= t("activerecord.attributes.machine.introduction_date") %></th>
+        <th><%= t("activerecord.attributes.machine.manufacturer") %></th>
+        <th><%= t("activerecord.attributes.machine.archetype") %></th>
+        <th><%= t("activerecord.attributes.machine.spec") %></th>
       </tr>
     </thead>
 
     <tbody>
       <% @machines.each do |machine| %>
         <tr>
-          <td><%= machine.name %></td>
-          <td><%= link_to 'Show', machine %></td>
-          <td><%= link_to 'Edit', edit_machine_path(machine) %></td>
+          <td><%= link_to "#{machine.name}", machine %></td>
+          <td><%= machine.introduction_date %></td>
+          <td><%= t("machine.manufacturer.#{machine.manufacturer}") %></td>
+          <td><%= t("machine.archetype.#{machine.archetype}") %></td>
+          <td><%= t("machine.judgment.#{machine.judgment}") %></td>
         </tr>
       <% end %>
     </tbody>

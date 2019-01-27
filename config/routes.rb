@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     post "mod", to: "machines#mod", as: "mod"
   end
 
-
+  post "index", to: "machines#index", as: "index"
   resources :machines
   get "machines/:id/versions", to: "machines#versions", as: "versions"
   post "trace", to: "machines#trace", as: "trace"
@@ -32,5 +32,9 @@ Rails.application.routes.draw do
   post "degenerate", to: "machines#degenerate", as: "degenerate"
   post "diff", to: "machines#diff", as: "diff"
   post "nowdiff", to: "machines#nowdiff", as: "nowdiff"
+
+
+
   root 'top#index'
+  get "about", to: "pages#about", as: "about"
 end
