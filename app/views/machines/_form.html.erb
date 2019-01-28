@@ -43,10 +43,8 @@
                                          ["権利・セット", :set], ["変則", :hensoku], ["未分類", :uncategorized]] %>
     </div>
     <div class="row pl-3 mb-3">
+      <%= f.label :introduction_date %>
       <%= f.date_select :introduction_date, discard_day: true %>
-    </div>
-    <div class="row pl-3 mb-3">
-      <%= f.input :introduction_season %>
     </div>
 
     <%= f.label :details %>
@@ -67,6 +65,10 @@
     <%= f.text_field :degression, class: "quill_container" %>
     <%= f.label :other %>
     <%= f.text_field :other, class: "quill_container" %>
+
+    <% if administrator_signed_in? %>
+      <%= f.input :authority, collection:[["参加者のみ", :user], ["管理者のみ", :administrator]] %>
+    <% end %>
 
     <%= f.button :submit, class: 'btn-primary mt-4' %>
 

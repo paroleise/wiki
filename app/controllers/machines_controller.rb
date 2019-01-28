@@ -66,7 +66,6 @@ class MachinesController < ApplicationController
 
   def create
     @machine = Machine.new(machine_params)
-
     respond_to do |format|
       if @machine.save
         format.html { redirect_to @machine, notice: 'Machine was successfully created.' }
@@ -107,7 +106,7 @@ class MachinesController < ApplicationController
       params.require(:machine).permit(:name, :kana, :judgment,
         :manufacturer, :spec, :archetype, :introduction_date, :introduction_season,
         :overview, :feature, :evaluation_point, :pros_and_cons, :problem, :other,
-        :conclusion, :degression, :details)
+        :conclusion, :degression, :details, :authority)
     end
 
     def search_past_article

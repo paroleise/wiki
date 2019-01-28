@@ -275,4 +275,8 @@ ja:
       set: 権利・セット
       hensoku: 変則
       uncategorized: 未分類
+    authority:
+      free: すべて
+      user: 参加者
+      administrator: 管理者
 

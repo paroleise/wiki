@@ -101,6 +101,10 @@
       <%= f.text_field :other, class: "quill_container" %>
     <% end %>
 
+    <% if administrator_signed_in? && object == "authority" %>
+      <%= f.input :authority, collection:[["参加者のみ", :user], ["管理者のみ", :administrator]] %>
+    <% end %>
+
     <div class="actions">
       <%= f.button :submit, class: 'btn-primary mt-4' %>
     </div>

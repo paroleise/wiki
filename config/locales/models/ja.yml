@@ -24,6 +24,7 @@ ja:
         details: 詳細スペック
         created_at: 作成日
         updated_at: 更新日
+        authority: 権限
       user:
         name: ID
         email: E-mail

@@ -29,6 +29,9 @@
       </tr>
 
       <% @versions.order(created_at: :asc).each_with_index.reverse_each do |version, i| %>
+        <% if version.reify.authority %>
+          <% next %>
+        <% end %>
         <tr>
           <td><%= link_to "#{version.created_at}", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
           <td>
