@@ -9,8 +9,6 @@
     </ul>
   </div>
 <% end %>
-
-
   <%= simple_form_for machine, html: { class: '' } do |f| %>
 
     <h4>
@@ -102,7 +100,7 @@
     <% end %>
 
     <% if administrator_signed_in? && object == "authority" %>
-      <%= f.input :authority, collection:[["参加者のみ", :user], ["管理者のみ", :administrator]] %>
+      <%= f.input :authority, collection:[["すべて", :free],["参加者", :user], ["管理者", :administrator]] %>
     <% end %>
 
     <div class="actions">

@@ -67,7 +67,7 @@
     <%= f.text_field :other, class: "quill_container" %>
 
     <% if administrator_signed_in? %>
-      <%= f.input :authority, collection:[["参加者のみ", :user], ["管理者のみ", :administrator]] %>
+      <%= f.input :authority, collection:[["すべて", :free],["参加者", :user], ["管理者", :administrator]], required: true %>
     <% end %>
 
     <%= f.button :submit, class: 'btn-primary mt-4' %>

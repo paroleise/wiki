@@ -1,6 +1,7 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :versions, :edit, :update, :destroy, :mod]
   before_action :search_past_article, only: [:trace, :diff, :nowdiff, :degenerate]
+  before_action :confirm_authority, only: [:edit, :update, :mod, :destroy]
 
   def index
     if params[:manufacturer]
@@ -24,7 +25,6 @@ class MachinesController < ApplicationController
       @divided = nil
       @value = nil
     end
-
   end
 
   def versions
@@ -115,6 +115,17 @@ class MachinesController < ApplicationController
         @version = @version.previous
       end
       @machine = @version.reify
+    end
+
+    def confirm_authority
+      if @machine.authority == "administrator"
+        return true if administrator_signed_in?
+      elsif @machine.authority == "user"
+        return true if user_signed_in? || administrator_signed_in?
+      else
+        return true
+      end
+      redirect_to machine_path(@machine), notice: "この記事の編集は管理者によって制限されています。"
     end
 
 end

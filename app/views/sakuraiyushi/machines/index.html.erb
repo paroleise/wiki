@@ -10,6 +10,7 @@
         <th><%= t("activerecord.attributes.machine.name") %></th>
         <th><%= t("activerecord.attributes.machine.manufacturer") %></th>
         <th><%= t("activerecord.attributes.machine.updated_at") %></th>
+        <th><%= t("activerecord.attributes.machine.authority") %></th>
         <th></th>
         <th></th>
       </tr>
@@ -20,6 +21,9 @@
           <td><%= link_to machine_path(machine) do %><%= machine.name %><% end %></td>
           <td><%= t("machine.manufacture.#{machine.manufacturer}")%></td>
           <td><%= machine.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+          <td>
+            <%= machine.authority %>
+          </td>
           <td><%= link_to '編集', edit_machine_path(machine) %></td>
           <td>
             <% if machine.versions.last %>

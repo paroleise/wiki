@@ -33,4 +33,23 @@ module MachinesHelper
     end
   end
 
+  def authority_admin?(authority)
+    authority == "administrator"
+  end
+
+  def authority_user?(authority)
+    authority == "user"
+  end
+
+  def modifiable?(authority)
+    if authority_admin?(authority)
+      return true if administrator_signed_in?
+    elsif authority_user?(authority)
+      return true if user_signed_in? || administrator_signed_in?
+    else
+      return true
+    end
+    return false
+  end
+
 end

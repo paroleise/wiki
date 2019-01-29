@@ -8,8 +8,24 @@
     【<%= @machine.kana %>】
   </p>
 
+  <% if administrator_signed_in? %>
+    <div>
+      <p>
+        <%= t("activerecord.attributes.machine.authority") %> : <%= t("machine.authority.#{@machine.authority}") %>
+      </p>
+      <%= link_to "[権限編集]", mod_path(id: @machine.id, object: "authority"), method: :post %>
+      <p>
+        <%== @machine.other %>
+      </p>
+    </div>
+  <% end %>
+
   <table class="show-table">
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "table"), method: :post %>
+    <% if user_signed_in? || administrator_signed_in? %>
+      <% if modifiable?(@machine.authority)%>
+        <%= link_to "[編集]", mod_path(id: @machine.id, object: "table"), method: :post %>
+      <% end %>
+    <% end %>
     <tbody>
       <tr>
         <td>
@@ -56,7 +72,10 @@
 
   <div class="<%= content_nil?(@machine.details) %>">
     <h3><%= t("activerecord.attributes.machine.details") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "details"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "details"), method: :post %>
+    <% end %>
+
     <p>
       <%== @machine.details %>
     </p>
@@ -64,7 +83,9 @@
 
   <div class="<%= content_nil?(@machine.overview) %>">
     <h3><%= t("activerecord.attributes.machine.overview") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "overview"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "overview"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.overview %>
     </p>
@@ -72,7 +93,9 @@
 
   <div class="<%= content_nil?(@machine.feature) %>">
     <h3><%= t("activerecord.attributes.machine.feature") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "feature"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "feature"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.feature %>
     </p>
@@ -80,7 +103,9 @@
 
   <div class="<%= content_nil?(@machine.evaluation_point) %>">
     <h3><%= t("activerecord.attributes.machine.evaluation_point") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "evaluation_point"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "evaluation_point"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.evaluation_point %>
     </p>
@@ -88,7 +113,9 @@
 
   <div class="<%= content_nil?(@machine.pros_and_cons) %>">
     <h3><%= t("activerecord.attributes.machine.pros_and_cons") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "pros_and_cons"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "pros_and_cons"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.pros_and_cons %>
     </p>
@@ -96,7 +123,9 @@
 
   <div class="<%= content_nil?(@machine.problem) %>">
     <h3><%= t("activerecord.attributes.machine.problem") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "problem"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "problem"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.problem %>
     </p>
@@ -104,15 +133,29 @@
 
   <div class="<%= content_nil?(@machine.conclusion) %>">
     <h3><%= t("activerecord.attributes.machine.conclusion") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "conclusion"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "conclusion"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.conclusion %>
     </p>
   </div>
 
+  <div class="<%= content_nil?(@machine.degression) %>">
+    <h3><%= t("activerecord.attributes.machine.degression") %></h3>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "degression"), method: :post %>
+    <% end %>
+    <p>
+      <%== @machine.degression %>
+    </p>
+  </div>
+
   <div class="<%= content_nil?(@machine.other) %>">
     <h3><%= t("activerecord.attributes.machine.other") %></h3>
-    <%= link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post %>
+    <% if modifiable?(@machine.authority)%>
+      <%= link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post %>
+    <% end %>
     <p>
       <%== @machine.other %>
     </p>
