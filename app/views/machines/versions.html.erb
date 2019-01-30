@@ -29,7 +29,7 @@
       </tr>
 
       <% @versions.order(created_at: :asc).each_with_index.reverse_each do |version, i| %>
-        <% if version.reify.authority %>
+        <% if  version.previous && version.reify.authority != version.previous.reify.authority %>
           <% next %>
         <% end %>
         <tr>

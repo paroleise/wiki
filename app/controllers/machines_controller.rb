@@ -1,7 +1,7 @@
 class MachinesController < ApplicationController
   before_action :set_machine, only: [:show, :versions, :edit, :update, :destroy, :mod]
   before_action :search_past_article, only: [:trace, :diff, :nowdiff, :degenerate]
-  before_action :confirm_authority, only: [:edit, :update, :mod, :destroy]
+  before_action :confirm_authority, only: [:edit, :update, :degenerate, :mod, :destroy]
 
   def index
     if params[:manufacturer]
@@ -51,6 +51,9 @@ class MachinesController < ApplicationController
   end
 
   def new
+    unless administrator_signed_in? || user_signed_in?
+      redirect_to root_path, notice: "新しい記事の作成にはログインが必要です。"
+    end
     @machine = Machine.new
   end
 
