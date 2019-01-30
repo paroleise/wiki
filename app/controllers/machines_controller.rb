@@ -3,6 +3,7 @@ class MachinesController < ApplicationController
   before_action :search_past_article, only: [:trace, :diff, :nowdiff, :degenerate]
   before_action :confirm_authority, only: [:edit, :update, :degenerate, :mod, :destroy]
 
+
   def index
     if params[:manufacturer]
       @machines = Machine.all.where(manufacturer: params[:manufacturer]).order(introduction_date: :asc)
@@ -28,7 +29,7 @@ class MachinesController < ApplicationController
   end
 
   def versions
-    @versions = @machine.versions
+    @versions = @machine.versions.reorder('created_at DESC').page(params[:page]).limit(100).per(20)
     unless @versions.last
       redirect_to machine_path(@machine)
     end

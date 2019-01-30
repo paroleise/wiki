@@ -31,7 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'diff-lcs'
 gem 'paper_trail'
-
+gem 'kaminari', '~> 0.17.0'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

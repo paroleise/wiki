@@ -13,40 +13,26 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><%= link_to "#{@machine.updated_at}", machine_path(@machine) %></td>
-        <td>
-          <% if @versions.last.previous %>
-            <%= link_to "一つ前との差分", diff_path(id: @machine.id, index: 0, current: true), method: :post %>
-            <% else %>
-            --
-          <% end %>
-        </td>
-        <td> -- </td>
-        <td><%= link_to "表示", machine_path(@machine) %></td>
-        <td><%= link_to "編集", edit_machine_path(@machine) %></td>
-        <td></td>
-      </tr>
-
-      <% @versions.order(created_at: :asc).each_with_index.reverse_each do |version, i| %>
-        <% if  version.previous && version.reify.authority != version.previous.reify.authority %>
+      <% @versions.each_with_index do |version, i| %>
+        <% if version.previous && version.reify.authority != version.previous.reify.authority %>
           <% next %>
         <% end %>
         <tr>
-          <td><%= link_to "#{version.created_at}", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
+          <td><%= link_to "#{version.created_at}", trace_path(id: @machine.id, index: i), method: :post %></td>
           <td>
             <% if version.previous %>
-              <%= link_to "一つ前との差分", diff_path(id: @machine.id, index: @versions.count - i), method: :post %>
+              <%= link_to "一つ前との差分", diff_path(id: @machine.id, index: i), method: :post %>
               <% else %>
               --
             <% end %>
           </td>
-          <td><%= link_to "現在との差分", nowdiff_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
-          <td><%= link_to "表示", trace_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
-          <td><%= link_to "反映", degenerate_path(id: @machine.id, index: @versions.count - i), method: :post %></td>
+          <td><%= link_to "現在との差分", nowdiff_path(id: @machine.id, index: i), method: :post %></td>
+          <td><%= link_to "表示", trace_path(id: @machine.id, index: i), method: :post %></td>
+          <td><%= link_to "反映", degenerate_path(id: @machine.id, index: i), method: :post %></td>
           <td></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= paginate @versions %>
 </div>
