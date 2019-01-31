@@ -31,7 +31,7 @@ class MachinesController < ApplicationController
   def search
     @machines = Machine.all.order(introduction_date: :desc)
     @q = Machine.ransack(params[:q])
-    @machines = @q.result
+    @machines = @q.result.page(params[:page]).per(20)
   end
 
   def versions
