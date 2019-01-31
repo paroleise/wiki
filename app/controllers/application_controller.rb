@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :updated_date
   before_action :constant_information
+  before_action :search
 
   def updated_date
     @sidebar_machines = Machine.all.order(updated_at: :desc).limit(100)
@@ -16,6 +17,11 @@ class ApplicationController < ActionController::Base
     @archetypes = %w(kakuhen st vkakuhen vst tenraku onetwo feather ippatsu set hensoku uncategorized)
     @specs = %w(fucking_rare ultra_rare hyper_rare super_rare very_rare rare often normal feather uncategorized)
   end
+
+  def search
+    @q = Machine.all.order(introduction_date: :desc).ransack(params[:q])
+  end
+
 end
 
 

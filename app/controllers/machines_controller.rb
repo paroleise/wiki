@@ -28,6 +28,12 @@ class MachinesController < ApplicationController
     end
   end
 
+  def search
+    @machines = Machine.all.order(introduction_date: :desc)
+    @q = Machine.ransack(params[:q])
+    @machines = @q.result
+  end
+
   def versions
     @versions = @machine.versions.reorder('created_at DESC').page(params[:page]).limit(100).per(20)
     unless @versions.last

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   post "index", to: "machines#index", as: "index"
+  get "search", to: "machines#search", as: "search"
   resources :machines
   get "machines/:id/versions", to: "machines#versions", as: "versions"
   post "trace", to: "machines#trace", as: "trace"
