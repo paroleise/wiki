@@ -1,5 +1,62 @@
 .row
-  - unless be_diff?(machine.details, previous.details)
+  - unless be_diff?(machine.manufacturer, previous.manufacturer)
+    .col-sm-12
+      hr
+      strong = t("activerecord.attributes.machine.manufacturer")
+    .col-sm-6
+      p.diff-changes-head 編集前の内容
+      .diff-old == decorate_diff(previous.manufacturer, machine.manufacturer)
+    .col-sm-6
+      p.diff-changes-head = "#{current ? '現在' : '編集後'}の内容"
+      .diff-new == decorate_diff(machine.manufacturer, previous.manufacturer)
+
+  - unless be_diff?(machine.introduction_date, previous.introduction_date)
+    .col-sm-12
+      hr
+      strong = t("activerecord.attributes.machine.introduction_date")
+    .col-sm-6
+      p.diff-changes-head 編集前の内容
+      .diff-old == decorate_diff(previous.introduction_date, machine.introduction_date)
+    .col-sm-6
+      p.diff-changes-head = "#{current ? '現在' : '編集後'}の内容"
+      .diff-new == decorate_diff(machine.introduction_date, previous.introduction_date)
+
+  - unless be_diff?(machine.archetype, previous.archetype)
+    .col-sm-12
+      hr
+      strong = t("activerecord.attributes.machine.archetype")
+    .col-sm-6
+      p.diff-changes-head 編集前の内容
+      .diff-old == decorate_diff(previous.archetype, machine.archetype)
+    .col-sm-6
+      p.diff-changes-head = "#{current ? '現在' : '編集後'}の内容"
+      .diff-new == decorate_diff(machine.archetype, previous.archetype)
+
+
+  - unless be_diff?(machine.spec, previous.spec)
+    .col-sm-12
+      hr
+      strong = t("activerecord.attributes.machine.spec")
+    .col-sm-6
+      p.diff-changes-head 編集前の内容
+      .diff-old == decorate_diff(previous.spec, machine.spec)
+    .col-sm-6
+      p.diff-changes-head = "#{current ? '現在' : '編集後'}の内容"
+      .diff-new == decorate_diff(machine.spec, previous.spec)
+
+
+  - unless be_diff?(machine.judgment, previous.judgment)
+    .col-sm-12
+      hr
+      strong = t("activerecord.attributes.machine.judgment")
+    .col-sm-6
+      p.diff-changes-head 編集前の内容
+      .diff-old == decorate_diff(previous.judgment, machine.judgment)
+    .col-sm-6
+      p.diff-changes-head = "#{current ? '現在' : '編集後'}の内容"
+      .diff-new == decorate_diff(machine.judgment, previous.judgment)
+
+  - unless be_diff?(machine.judgment, previous.judgment)
     .col-sm-12
       hr
       strong = t("activerecord.attributes.machine.details")

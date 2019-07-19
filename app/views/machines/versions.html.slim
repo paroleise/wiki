@@ -11,10 +11,10 @@
         th
         th 編集者
     tbody
+
+
+
       - @versions.each_with_index do |version, i|
-        /TODO::要修正
-        - if (version.previous.blank? && version.reify.present?) && (version.reify.authority != version.previous.reify.authority)
-          - next
         tr
           td = link_to "#{version.created_at}", trace_path(id: @machine.id, index: i), method: :post
           td

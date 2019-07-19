@@ -35,7 +35,7 @@ class MachinesController < ApplicationController
   end
 
   def versions
-    @versions = @machine.versions.reorder('created_at DESC').page(params[:page]).limit(100).per(20)
+    @versions = @machine.versions.reorder('created_at DESC').limit(100).page(params[:page]).per(20)
     unless @versions.last
       redirect_to machine_path(@machine)
     end
