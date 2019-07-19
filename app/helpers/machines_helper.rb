@@ -1,5 +1,6 @@
 module MachinesHelper
 
+  #コンテンツがない部分は、hideクラス属性を付与して非表示にする
   def content_nil?(content)
     #HACK:: 正規表現まとめる
     if content && content.gsub(/<(".*?"|'.*?'|[^'"])*?>/, "").gsub(/^(.+?)[\s　]+(.+)$/, "") == ""

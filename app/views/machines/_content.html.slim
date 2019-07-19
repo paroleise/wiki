@@ -1,0 +1,87 @@
+.container
+  p#notice = notice
+  h2 = @machine.name
+  p = @machine.kana
+
+  - if administrator_signed_in?
+    div
+      p = t("activerecord.attributes.machine.authority") + ":" + t("machine.authority.#{@machine.authority}")
+      = link_to "[権限編集]", mod_path(id: @machine.id, object: "authority"), method: :post
+      p == @machine.other
+
+  table.show-table
+    - if (user_signed_in? || administrator_signed_in?) && modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "table"), method: :post
+    tbody
+      tr
+        td = t "activerecord.attributes.machine.manufacturer"
+        td = t "machine.manufacture.#{@machine.manufacturer}"
+      tr
+        td = t "activerecord.attributes.machine.introduction_date"
+        td = @machine.introduction_date.strftime("%Y年%m月")
+      tr
+        td = t "activerecord.attributes.machine.archetype"
+        td = t "machine.archetype.#{@machine.archetype}"
+      tr
+        td = t "activerecord.attributes.machine.spec"
+        td = t "machine.spec.#{@machine.spec}"
+      tr
+        td = t "activerecord.attributes.machine.judgment"
+        td
+          strong = t "machine.judgment.#{@machine.judgment}"
+
+  div class="#{content_nil?(@machine.details)}"
+    h3 = t("activerecord.attributes.machine.details")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "details"), method: :post
+    p == @machine.details
+
+  div class="#{content_nil?(@machine.overview)}"
+    h3 = t("activerecord.attributes.machine.overview")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "overview"), method: :post
+    p == @machine.overview
+
+  div class="#{content_nil?(@machine.feature)}"
+    h3 = t("activerecord.attributes.machine.feature")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "feature"), method: :post
+    p == @machine.feature
+
+  div class="#{content_nil?(@machine.evaluation_point)}"
+    h3 = t("activerecord.attributes.machine.evaluation_point")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "evaluation_point"), method: :post
+    p == @machine.evaluation_point
+
+  div class="#{content_nil?(@machine.pros_and_cons)}"
+    h3 = t("activerecord.attributes.machine.pros_and_cons")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "pros_and_cons"), method: :post
+    p == @machine.pros_and_cons
+
+  div class="#{content_nil?(@machine.problem)}"
+    h3 = t("activerecord.attributes.machine.problem")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "problem"), method: :post
+    p == @machine.problem
+
+  div class="#{content_nil?(@machine.conclusion)}"
+    h3 = t("activerecord.attributes.machine.conclusion")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "conclusion"), method: :post
+    p == @machine.conclusion
+
+  div class="#{content_nil?(@machine.degression)}"
+    h3 = t("activerecord.attributes.machine.degression")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "degression"), method: :post
+    p == @machine.degression
+
+  div class="#{content_nil?(@machine.other)}"
+    h3 = t("activerecord.attributes.machine.other")
+    - if modifiable?(@machine.authority)
+      = link_to "[編集]", mod_path(id: @machine.id, object: "other"), method: :post
+    p == @machine.other
+
+  = link_to 'Back', machines_path

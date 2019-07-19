@@ -1,0 +1,100 @@
+- if machine.errors.any?
+  #error_explanation
+    h2
+      = pluralize(machine.errors.count, "error")
+      | prohibited this machine from being saved
+    ul
+      - machine.errors.full_messages.each do |message|
+        li = message
+
+= simple_form_for machine, html: {class: ''} do |f|
+
+  h4
+    = t "activerecord.#{machine.name} "
+    | の編集
+
+  - if object == "table"
+    .row.pl-3.mb-3
+      = f.input :name, required: true
+    .row.pl-3.mb-3
+      = f.input :kana, required: true
+    .row.pl-3.mb-3
+      = f.input :judgment, collection: [["良台", :good], ["凡台", :ordinary], ["糞台", :shit], ["賛否両論", :pac],
+        ["スルメ", :squid], ["怪作", :terror], ["なし", :nothing]]
+    .row.pl-3.mb-3
+      = f.input :manufacturer, required: true,
+        collection: [ \
+          ["愛喜", :aiki], ["アムテックス", :amtechs], ["A-gon（エイゴン）", :agon],
+          ["EXCITE（newgin）", :excite], ["オッケー（OK!!）", :ok], ["オリンピア", :olympia], ["京楽", :kyoraku],
+          ["銀座", :ginza], ["ゴールドオリンピア", :goldolympia], ["Sammy", :sammy], ["SANKYO", :sankyo],
+          ["三洋", :sanyo], ["サンスリー", :sunthree], ["SanseiR＆D", :sansei], ["ジェイビー", :jb],
+          ["DAIICHI", :daiichi], ["大都技研", :daito], ["TAIYO ELEC", :taiyo], ["TAKASAGO", :takasago],
+          ["TAKAO", :takao], ["竹屋", :takeya], ["DAiWA", :daiwa], ["豊丸", :toyomaru], ["aaa", :aaa],
+          ["ナナショウ（七匠）", :nanasho], ["西陣", :nishijin], ["ニューギン", :newgin],
+          ["ビスティ（bisty）", :bisty], ["藤商事", :fuji], ["HEIWA", :heiwa], ["HEIWA BROS（平和）", :bros],
+          ["ベルコ（bellco）", :bellco], ["まさむら遊機", :masamura], ["マルホン工業", :maruhon],
+          ["ミズホ（mizuho）", :mizuho], ["MACY（UNIVERSAL）", :macy], ["その他", :other] \
+        ]
+    .row.pl-3.mb-3
+      = f.input :spec, required: true,
+        collection: [ \
+          ["1/400~", :fucking_rare], ["1/320~1/399", :ultra_rare],
+          ["1/260~1/319", :hyper_rare], ["1/200~1/259", :super_rare], ["1/160~1/199", :very_rare],
+          ["1/100~1/159", :rare], ["1/40~1/99", :often], ["1/1~1/39", :normal],
+          ["羽根・一発台", :feather], ["未分類", :uncategorized] \
+        ]
+    .row.pl-3.mb-3
+      = f.input :archetype, required: true,
+        collection:[ \
+          ["確変ループ", :kakuhen], ["ST", :st], ["V確変", :vkakuhen], ["VST", :vst],
+          ["転落", :tenraku], ["一種二種", :onetwo], ["羽根", :feather], ["一発台", :ippatsu],
+          ["権利・セット", :set], ["変則", :hensoku], ["未分類", :uncategorized] \
+        ]
+    .row.pl-3.mb-3
+      = f.label :introduction_date
+      = f.date_select :introduction_date, discard_day: true
+    .row.pl-3.mb-3
+      = f.label :introduction_season
+      = f.input :introduction_season
+
+  - if object == "details"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :details
+      = f.text_field :details, class: "quill_container"
+  - if object == "overview"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :overview
+      = f.text_field :overview, class: "quill_container"
+  - if object == "feature"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :feature
+      = f.text_field :feature, class: "quill_container"
+  - if object == "evaluation_point"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :evaluation_point
+      = f.text_field :evaluation_point, class: "quill_container"
+  - if object == "pros_and_cons"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :pros_and_cons
+      = f.text_field :pros_and_cons, class: "quill_container"
+  - if object == "problem"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :problem
+      = f.text_field :problem, class: "quill_container"
+  - if object == "conclusion"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :conclusion
+      = f.text_field :conclusion, class: "quill_container"
+  - if object == "degression"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :degression
+      = f.text_field :degression, class: "quill_container"
+  - if object == "other"
+    .row.pl-3.mb-3.d-flex.flex-column
+      = f.label :other
+      = f.text_field :other, class: "quill_container"
+  - if administrator_signed_in? && object == "authority"
+    = f.input :authority, collection:[["すべて", :free],["参加者", :user], ["管理者", :administrator]]
+
+  .actions
+    = f.button :submit, class: 'btn-primary mt-4'

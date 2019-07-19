@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+
+gem 'slim-rails'
+
 gem 'diff-lcs'
 gem 'paper_trail'
 gem 'kaminari', '~> 0.17.0'

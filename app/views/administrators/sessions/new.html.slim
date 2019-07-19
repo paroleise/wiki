@@ -1,0 +1,10 @@
+.form-block
+  h3 SAKURAI YUSHI
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = f.error_notification
+    b who?
+    .form-inputs
+      = f.input :email, required: true, autofocus: true, label: false, placeholder: 'ID'
+      = f.input :password, required: true, label: false, placeholder: 'PASS'
+    .form-actions
+      = f.button :submit, "Log-in", class: "btn-primary"

@@ -1,0 +1,6 @@
+.container
+  h1 更新履歴の反映
+  = render 'form', machine: @machine
+  = link_to 'Show', @machine
+  span = " | "
+  = link_to 'Back', machines_path

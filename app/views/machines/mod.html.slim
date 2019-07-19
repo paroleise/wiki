@@ -1,0 +1,5 @@
+.container
+  = render 'modform', machine: @machine, object: @object
+  = link_to 'Show', @machine
+  span = " | "
+  = link_to 'Back', machines_path

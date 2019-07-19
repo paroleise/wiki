@@ -1,0 +1,22 @@
+.container
+  p#notice = notice
+  h1 検索結果
+  table
+    thead
+      tr
+        th = t "activerecord.attributes.machine.name"
+        th = t "activerecord.attributes.machine.introduction_date"
+        th = t "activerecord.attributes.machine.manufacturer"
+        th = t "activerecord.attributes.machine.archetype"
+        th = t "activerecord.attributes.machine.spec"
+        th = t "activerecord.attributes.machine.overview"
+    tbody
+      - @machines.each do |machine|
+        tr
+          td = link_to "#{machine.name}", machine
+          td = machine.introduction_date.strftime("%Y年%m月")
+          td = t "machine.manufacturer.#{machine.manufacturer}"
+          td = t "machine.archetype.#{machine.archetype}"
+          td = t "machine.spec.#{machine.spec}"
+          td == machine.overview.gsub(/<(".*?"|'.*?'|[^'"])*?>/, "")
+  = paginate @machines

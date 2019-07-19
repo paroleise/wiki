@@ -1,0 +1,29 @@
+.container
+  p#notice = notice
+  h4.pt-5.pb-2 = "#{@machine.name}の編集履歴"
+  table.table.container.list-table.superviser-list-table.mt-5
+    thead
+      tr
+        th 更新日
+        th 差分
+        th
+        th
+        th
+        th 編集者
+    tbody
+      - @versions.each_with_index do |version, i|
+        /TODO::要修正
+        - if (version.previous.blank? && version.reify.present?) && (version.reify.authority != version.previous.reify.authority)
+          - next
+        tr
+          td = link_to "#{version.created_at}", trace_path(id: @machine.id, index: i), method: :post
+          td
+            - if version.previous
+              = link_to "一つ前との差分", diff_path(id: @machine.id, index: i), method: :post
+            - else
+              | --
+          td = link_to "現在との差分", nowdiff_path(id: @machine.id, index: i), method: :post
+          td = link_to "表示", trace_path(id: @machine.id, index: i), method: :post
+          td = link_to "反映", degenerate_path(id: @machine.id, index: i), method: :post
+          td
+  = paginate @versions

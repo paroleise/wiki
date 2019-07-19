@@ -1,0 +1,27 @@
+.container
+  p#notice = notice
+  h4.pt-5 機種一覧
+  p.text-right.pb-3
+    = link_to "新機種の記事を作成する", new_machine_path
+  table.table.container.list-table.superviser-list-table
+    thead
+      tr
+        th = t "activerecord.attributes.machine.name"
+        th = t "activerecord.attributes.machine.manufacturer"
+        th = t "activerecord.attributes.machine.updated_at"
+        th = t "activerecord.attributes.machine.authority"
+        th
+        th
+    tbody
+      - @machines.each do |machine|
+        tr
+          td = link_to "#{machine.name}", machine_path(machine)
+          td = t "machine.manufacture.#{machine.manufacturer}"
+          td = machine.updated_at.strftime("%Y年%m月%d日 %H:%M")
+          td = machine.authority
+          td = link_to '編集', edit_machine_path(machine)
+          td
+           - if machine.versions.last
+            = link_to '編集履歴', versions_path(machine)
+           - else
+            | 未編集

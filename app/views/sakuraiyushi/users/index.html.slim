@@ -1,0 +1,15 @@
+.container
+ p#notice = notice
+ h4.pt-5.pb-2 参加者一覧
+ table.table.container.list-table.superviser-list-table.mt-5
+  thead
+    tr
+      th = t("activerecord.attributes.user.name")
+      th = t("activerecord.attributes.user.email")
+      th = t("activerecord.attributes.user.created_at")
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.name
+        td = user.email
+        td = user.created_at.strftime("%Y年%m月%d日 %H:%M")
